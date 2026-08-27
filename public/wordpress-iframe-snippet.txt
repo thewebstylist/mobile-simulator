@@ -1,0 +1,23 @@
+<!--
+  Replace REPLACE-WITH-YOUR-BUNNY-ENDPOINT with the HTTPS hostname shown in
+  Bunny Magic Containers, for example https://mc-abc123.bunny.run
+-->
+<iframe
+  id="sterling-mobile-simulator-frame"
+  title="Sterling Mobile Simulator"
+  src="https://REPLACE-WITH-YOUR-BUNNY-ENDPOINT/index-standalone-iframe.html"
+  style="display:block;width:100%;min-height:1100px;border:0;background:#070709;overflow:hidden;"
+  loading="eager"
+  allow="clipboard-write"
+></iframe>
+<script>
+  (() => {
+    const frame = document.getElementById("sterling-mobile-simulator-frame");
+    window.addEventListener("message", (event) => {
+      if (event.source !== frame.contentWindow) return;
+      if (event.data?.type !== "sterling-mobile-simulator-height") return;
+      const height = Math.max(1100, Math.min(6000, Number(event.data.height) || 1100));
+      frame.style.height = `${height}px`;
+    });
+  })();
+</script>

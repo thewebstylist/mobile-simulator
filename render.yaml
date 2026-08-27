@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: sterling-mobile-simulator-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PROMO_ALLOWED_ORIGINS
+        value: https://sterlingcreations.ai,https://www.sterlingcreations.ai

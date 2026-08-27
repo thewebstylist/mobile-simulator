@@ -1,0 +1,359 @@
+<!--
+  STERLING MOBILE SIMULATOR — WORDPRESS BLANK-PAGE EMBED
+  Paste this entire file into one Custom HTML widget on a blank/no-header/no-footer
+  WordPress page template. The simulator’s own Sterling header and footer are included.
+  Set sterling-api-base below when the capture API uses a different HTTPS origin.
+-->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="sterling-api-base" content="" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { important: "#sterling-mobile-simulator", corePlugins: { preflight: false }, theme: { extend: { fontFamily: { brand: ["Montserrat", "sans-serif"] }, colors: { ink: "#070709", neonblue: "#2c8cff", neonpink: "#F23AFC" } } } };
+  </script>
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <style type="text/tailwindcss">
+    @layer base {
+      #sterling-mobile-simulator, #sterling-mobile-simulator * { @apply box-border; }
+      #sterling-mobile-simulator { @apply block w-full bg-ink font-brand text-[#f4f3ef] antialiased; line-height:1.5; isolation:isolate; }
+      #sterling-mobile-simulator button, #sterling-mobile-simulator a, #sterling-mobile-simulator input { -webkit-tap-highlight-color:transparent; font-family:inherit; }
+    }
+    @layer components {
+      #sterling-mobile-simulator .hairline { border-color:rgba(255,255,255,.13); }
+      #sterling-mobile-simulator .micro { @apply text-[9px] uppercase tracking-[.16em]; }
+      #sterling-mobile-simulator .action-white { @apply flex h-[46px] items-center gap-2 bg-[#f4f3ef] px-4 text-[9px] font-bold uppercase tracking-[.06em] text-[#09090c] transition hover:-translate-y-px hover:bg-white; }
+      #sterling-mobile-simulator .field-label { @apply mb-2 flex justify-between text-[9px] uppercase tracking-[.1em] text-[#878790]; }
+      #sterling-mobile-simulator .field { @apply h-10 w-full border hairline bg-[#0e0e12] px-3 text-[11px] text-white outline-none transition focus:border-[#5d5d67]; }
+      #sterling-mobile-simulator .recent-action { @apply grid h-7 w-7 place-items-center border border-white/25 bg-black/90 text-white transition hover:bg-white hover:text-black; }
+    }
+    #sterling-mobile-simulator.app-bg { background:radial-gradient(circle at 82% 10%,rgba(44,140,255,.07),transparent 25rem),radial-gradient(circle at 10% 52%,rgba(242,58,252,.035),transparent 22rem),#070709; }
+    #sterling-mobile-simulator .hero-accent { color:transparent; -webkit-text-stroke:2px #2c8cff; text-shadow:none; filter:drop-shadow(0 0 2px rgba(44,140,255,.28)); font-family:"Arial Black","Helvetica Neue",sans-serif; font-weight:900; letter-spacing:.015em; }
+    #sterling-mobile-simulator .energy-dot { background:#2c8cff; box-shadow:0 0 9px rgba(44,140,255,.9),0 0 18px rgba(44,140,255,.58); }
+    #sterling-mobile-simulator .energy-dot::before,#sterling-mobile-simulator .energy-dot::after { content:""; position:absolute; inset:-5px; border:1px solid rgba(242,58,252,.75); box-shadow:0 0 7px rgba(242,58,252,.3); border-radius:999px; animation:energy-pulse 1.8s ease-out infinite; }
+    #sterling-mobile-simulator .energy-dot::before { animation-delay:.9s; }
+    @keyframes energy-pulse { 0% { transform:scale(.55);opacity:.95 } 75%,100% { transform:scale(1.85);opacity:0 } }
+    #sterling-mobile-simulator .spin { animation:spin 1s linear infinite; }
+    @keyframes spin { to { transform:rotate(360deg) } }
+    @keyframes sms-rise-in { from { opacity:0;transform:translate3d(0,16px,0) } to { opacity:1;transform:translate3d(0,0,0) } }
+    @keyframes sms-fade-down { from { opacity:0;transform:translate3d(0,-10px,0) } to { opacity:1;transform:translate3d(0,0,0) } }
+    #sterling-mobile-simulator .sms-reveal { opacity:0; animation:sms-rise-in .76s cubic-bezier(.22,1,.36,1) both; }
+    #sterling-mobile-simulator .sms-reveal-down { opacity:0; animation-name:sms-fade-down; animation-duration:.72s; }
+    #sterling-mobile-simulator .sms-delay-1 { animation-delay:.08s; }
+    #sterling-mobile-simulator .sms-delay-2 { animation-delay:.14s; }
+    #sterling-mobile-simulator .sms-delay-3 { animation-delay:.2s; }
+    #sterling-mobile-simulator .sms-delay-4 { animation-delay:.27s; }
+    #sterling-mobile-simulator .sms-delay-5 { animation-delay:.33s; }
+    #sterling-mobile-simulator .sms-delay-6 { animation-delay:.39s; }
+    #sterling-mobile-simulator .sms-delay-7 { animation-delay:.45s; }
+    #sterling-mobile-simulator .sms-delay-8 { animation-delay:.5s; }
+    #sterling-mobile-simulator .preview-grid { background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:6.666% 12.5%; }
+    #sterling-mobile-simulator .range { appearance:none; width:100%; height:2px; background:#34343b; }
+    #sterling-mobile-simulator .range::-webkit-slider-thumb { appearance:none; width:14px;height:14px;border-radius:50%;background:#2c8cff;box-shadow:0 0 9px rgba(44,140,255,.55); }
+    #sterling-mobile-simulator .recent-card .recent-controls { opacity:0; transform:translateY(5px); pointer-events:none; transition:.2s ease; }
+    #sterling-mobile-simulator .recent-card:hover .recent-controls,#sterling-mobile-simulator .recent-card:focus-within .recent-controls { opacity:1;transform:none;pointer-events:auto; }
+    #sterling-mobile-simulator #status:not(.hidden) + .preview-shell { margin-top:18px; }
+
+    /* WordPress/WPBakery collision guards. */
+    #sterling-mobile-simulator { width:100%!important; max-width:none!important; min-height:100vh!important; margin:0!important; padding:0!important; position:relative!important; overflow:hidden!important; }
+    #sterling-mobile-simulator h1 { margin:0!important; color:#f4f3ef!important; font-family:"Montserrat",sans-serif!important; font-size:clamp(42px,5vw,74px)!important; font-weight:700!important; line-height:.97!important; letter-spacing:-.055em!important; text-transform:none!important; }
+    #sterling-mobile-simulator .sms-brand-logo { width:71px!important; height:70px!important; min-width:71px!important; max-width:71px!important; min-height:70px!important; max-height:70px!important; object-fit:contain!important; position:static!important; inset:auto!important; margin:0!important; padding:0!important; transform:none!important; border:0!important; box-shadow:none!important; }
+    #sterling-mobile-simulator #generate-button { background:#f4f3ef!important; background-image:none!important; color:#09090b!important; border:0!important; border-radius:0!important; box-shadow:none!important; }
+    #sterling-mobile-simulator #generate-button:hover { background:#fff!important; color:#09090b!important; }
+    #sterling-mobile-simulator #capture-form input { height:54px!important; padding:0 16px!important; background:transparent!important; background-image:none!important; color:#f4f3ef!important; border:0!important; border-radius:0!important; box-shadow:none!important; font-size:14px!important; }
+    #sterling-mobile-simulator .field { background:#0e0e12!important; border:1px solid rgba(255,255,255,.13)!important; border-radius:0!important; box-shadow:none!important; }
+    #sterling-mobile-simulator .action-white { background:#f4f3ef!important; background-image:none!important; color:#09090c!important; border-radius:0!important; }
+    #sterling-mobile-simulator #recapture { background:transparent!important; background-image:none!important; color:#f4f3ef!important; border-radius:0!important; }
+    #sterling-mobile-simulator #output-image { width:100%!important; height:100%!important; max-width:none!important; max-height:none!important; object-fit:contain!important; position:static!important; margin:0!important; border:0!important; box-shadow:none!important; }
+    #sterling-mobile-simulator .recent-card img { width:100%!important; height:auto!important; max-width:none!important; position:static!important; margin:0!important; border:0!important; box-shadow:none!important; }
+    #sterling-mobile-simulator summary,#sterling-mobile-simulator button { border-radius:0!important; box-shadow:none!important; }
+    @media (hover:none) { #sterling-mobile-simulator .recent-card .recent-controls { opacity:1;transform:none;pointer-events:auto; } }
+    @media (max-width:640px) { #sterling-mobile-simulator h1 { font-size:clamp(42px,12vw,58px)!important; } #sterling-mobile-simulator .sms-brand-logo { width:58px!important;height:57px!important;min-width:58px!important;max-width:58px!important;min-height:57px!important;max-height:57px!important; } }
+    @media (prefers-reduced-motion:reduce) { #sterling-mobile-simulator,#sterling-mobile-simulator * { animation-duration:.01ms!important;animation-delay:0ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important; } }
+  </style>
+<main id="sterling-mobile-simulator" class="app-bg min-h-screen overflow-hidden">
+    <header class="sms-reveal sms-reveal-down mx-auto flex h-[96px] max-w-[1380px] items-center justify-between border-b hairline px-5 md:px-7">
+      <a href="#top" class="flex items-center gap-2.5 text-white no-underline" aria-label="Sterling Creations AI home">
+        <i class="energy-dot relative h-2 w-2 shrink-0 rounded-full" aria-hidden="true"></i>
+        <img class="sms-brand-logo h-[70px] w-[71px] object-contain" src="https://sterlingcreations.ai/wp-content/uploads/2026/04/sterling-creations-ai-new-logo-circle-Darkclean-.png" alt="" width="71" height="70" style="width:71px!important;height:70px!important;max-width:71px!important" />
+        <span class="text-[10px] font-semibold tracking-[.14em]">STERLING <b class="font-normal text-[#777780]">CREATIONS AI</b></span>
+      </a>
+      <div class="micro hidden items-center gap-2 text-[#777780] sm:flex"><i data-lucide="lock-keyhole" class="h-3 w-3"></i>Private production tool</div>
+    </header>
+
+    <section id="top" class="mx-auto max-w-[1280px] px-[18px] pb-0 pt-6 md:px-9 md:pt-[35px]">
+      <div class="sms-reveal sms-delay-1 micro flex items-center gap-3 text-[#8e8e97]"><i class="h-px w-9 bg-neonpink shadow-[0_0_8px_rgba(242,58,252,.7)]"></i>Mobile presentation system <em class="ml-auto not-italic text-[#55555d]">01</em></div>
+      <div class="mt-7 grid items-end gap-8 lg:grid-cols-[minmax(0,1.55fr)_minmax(280px,.45fr)] lg:gap-16">
+        <h1 class="sms-reveal sms-delay-2 m-0 text-[clamp(42px,5vw,74px)] font-bold leading-[.97] tracking-[-.055em]">
+          <span class="block">The Desktop + iPhone</span>
+          <span class="block">Website Capture <b class="hero-accent font-extrabold">HERO!</b></span>
+        </h1>
+        <div class="sms-reveal sms-delay-3 pb-2">
+          <p class="mb-6 text-[13px] leading-7 text-[#a2a2ab]">Turn any public homepage into a polished desktop-and-iPhone promotional image, ready to present or publish.</p>
+          <div class="flex items-center gap-2 text-[9px] tracking-[.13em]"><i class="h-1.5 w-1.5 rounded-full bg-neonpink shadow-[0_0_10px_rgba(242,58,252,.85)]"></i>1500 × 812 <span class="text-[#4f4f57]">+</span> 2× master</div>
+        </div>
+      </div>
+
+      <form id="capture-form" class="sms-reveal sms-delay-4 mt-14 flex flex-wrap items-center border hairline bg-[#0d0d11] p-[7px] shadow-2xl focus-within:border-[#5b5b64] md:h-[74px] md:flex-nowrap">
+        <svg class="ml-4 h-[23px] w-[23px] shrink-0 drop-shadow-[0_0_5px_rgba(44,140,255,.32)]" viewBox="0 0 24 24" fill="none" aria-hidden="true"><defs><linearGradient id="standalone-globe" x1="3" y1="3" x2="21" y2="21" gradientUnits="userSpaceOnUse"><stop stop-color="#F23AFC"/><stop offset=".52" stop-color="#875cff"/><stop offset="1" stop-color="#2c8cff"/></linearGradient></defs><circle cx="12" cy="12" r="9" stroke="url(#standalone-globe)" stroke-width="1.7"/><path d="M3.4 9h17.2M3.4 15h17.2M12 3c2.1 2.45 3.2 5.45 3.2 9S14.1 18.55 12 21c-2.1-2.45-3.2-5.45-3.2-9S9.9 5.45 12 3Z" stroke="url(#standalone-globe)" stroke-width="1.35" stroke-linecap="round"/></svg>
+        <label for="url" class="sr-only">Website URL</label>
+        <input id="url" name="url" class="h-[54px] min-w-0 flex-1 bg-transparent px-4 text-sm font-medium text-white outline-none placeholder:text-[#5c5c65]" placeholder="Paste a public website URL" inputmode="url" autocomplete="url" required />
+        <button id="generate-button" type="submit" class="flex h-[58px] w-full items-center justify-center gap-2.5 bg-[#f4f3ef] px-5 text-[10px] font-bold uppercase tracking-[.06em] text-[#09090b] transition hover:bg-white disabled:cursor-not-allowed disabled:opacity-50 md:w-auto">
+          <i data-lucide="sparkles" class="h-4 w-4"></i><span>Generate promo image</span><i data-lucide="arrow-right" class="h-4 w-4"></i>
+        </button>
+      </form>
+
+      <details class="sms-reveal sms-delay-5 group border-b hairline">
+        <summary class="micro flex cursor-pointer list-none items-center justify-between py-[18px] text-[#8f8f98]"><span class="flex items-center gap-2"><i data-lucide="sliders-horizontal" class="h-4 w-4"></i>Advanced capture settings</span><i data-lucide="chevron-down" class="h-4 w-4 transition group-open:rotate-180"></i></summary>
+        <div class="grid gap-6 pb-7 pt-2 md:grid-cols-3">
+          <label><span class="field-label">Capture delay <b id="delay-value" class="text-white">2.5s</b></span><input id="delay" class="range" type="range" min="1" max="12" step=".5" value="2.5" /></label>
+          <label><span class="field-label">Background darkening <b id="dark-value" class="text-white">0%</b></span><input id="darkening" class="range" type="range" min="0" max="35" value="0" /></label>
+          <label><span class="field-label">Phone shadow <b id="shadow-value" class="text-white">56%</b></span><input id="shadow" class="range" type="range" min="0" max="100" value="56" /></label>
+          <label><span class="field-label">Desktop scroll position</span><input id="desktop-scroll" class="field" type="number" min="0" value="0" /></label>
+          <label><span class="field-label">Mobile scroll position</span><input id="mobile-scroll" class="field" type="number" min="0" value="0" /></label>
+          <label><span class="field-label">Element to hide <small class="normal-case tracking-normal text-[#55555d]">optional CSS selector</small></span><input id="hide-selector" class="field" placeholder=".cookie-banner" /></label>
+          <label class="relative flex min-h-16 cursor-pointer items-center gap-3 border hairline px-4"><i data-lucide="image-up" class="h-4 w-4 text-neonpink"></i><span class="flex flex-col text-[9px]"><b class="uppercase tracking-[.09em]">Desktop override</b><small class="text-[#777780]">Upload a screenshot</small></span><input id="desktop-file" class="absolute inset-0 cursor-pointer opacity-0" type="file" accept="image/*" /></label>
+          <label class="relative flex min-h-16 cursor-pointer items-center gap-3 border hairline px-4"><i data-lucide="image-up" class="h-4 w-4 text-neonpink"></i><span class="flex flex-col text-[9px]"><b class="uppercase tracking-[.09em]">Mobile override</b><small class="text-[#777780]">Upload a screenshot</small></span><input id="mobile-file" class="absolute inset-0 cursor-pointer opacity-0" type="file" accept="image/*" /></label>
+          <label class="flex min-h-16 items-center justify-between border hairline px-4"><span class="flex flex-col text-[9px]"><b class="uppercase tracking-[.09em]">Website address</b><small class="text-[#777780]">Show Safari footer</small></span><input id="show-address" class="h-4 w-4 accent-neonblue" type="checkbox" checked /></label>
+        </div>
+      </details>
+    </section>
+
+    <section class="sms-reveal sms-delay-6 mx-auto max-w-[1280px] px-[18px] pt-[18px] md:px-9">
+      <em id="monitor-label" class="sr-only" aria-live="polite">Awaiting URL</em>
+      <div id="status" class="hidden border hairline bg-[#0e0e12] p-[18px]"></div>
+      <div class="preview-shell border border-[#292930] bg-[#0f0f13] p-[13px]">
+        <div id="preview" class="preview-grid relative aspect-[1500/812] overflow-hidden bg-[radial-gradient(circle_at_65%_40%,#151820,#09090c_58%)]">
+          <div id="empty-preview" class="absolute inset-0">
+            <div class="absolute inset-[8%_11%_10%_6%] grid place-items-center border border-[#2f3038] bg-[#101116]"><span class="text-[clamp(8px,2vw,28px)] font-bold tracking-[.12em] text-[#2d2e35]">DESKTOP CAPTURE</span></div>
+            <div class="absolute left-[75.6%] top-[13.7%] h-[86.3%] w-[22.25%] rounded-[11%/5%] border-[max(2px,.35vw)] border-[#434650] bg-[#101117] shadow-2xl"><i class="absolute left-[33%] top-[2%] h-[4%] w-[34%] rounded-full bg-[#272830]"></i><b class="absolute inset-[7%_4%_3%] rounded-[8%/4%] bg-[#0c0c10]"></b></div>
+          </div>
+          <img id="output-image" class="hidden h-full w-full object-contain" alt="Generated desktop and iPhone promotional composite" />
+        </div>
+        <div class="micro flex flex-col gap-1 px-1 pt-3 text-[8px] text-[#686870] sm:flex-row sm:justify-between"><span id="filename">website-mobile-friendly-promo</span><em class="not-italic">Fixed composition · iPhone 16 Pro Max · Space Gray</em></div>
+      </div>
+      <div id="result-actions" class="mt-[18px] hidden flex-col justify-between gap-5 lg:flex-row lg:items-start">
+        <button id="recapture" class="flex h-[46px] items-center gap-2 border hairline px-4 text-[9px] uppercase tracking-[.08em]"><i data-lucide="refresh-cw" class="h-4 w-4"></i>Recapture website</button>
+        <div class="grid w-full grid-cols-2 gap-2 lg:w-auto lg:min-w-[460px]">
+          <a id="download-jpg" class="action-white" href="#"><i data-lucide="arrow-down-to-line" class="h-4 w-4"></i>JPG <span class="ml-auto text-[7px] font-medium text-[#6e6e76] sm:text-[9px]">1500 × 812</span></a>
+          <a id="download-jpg2x" class="action-white" href="#"><i data-lucide="arrow-down-to-line" class="h-4 w-4"></i>JPG <span class="ml-auto text-[7px] font-medium text-[#6e6e76] sm:text-[9px]">3000 × 1624</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="sms-reveal sms-delay-7 mx-auto max-w-[1280px] px-[18px] pb-20 pt-[85px] md:px-9">
+      <div class="micro flex items-center justify-between border-b hairline pb-3 text-[#8e8e97]"><span class="text-[#d7d7dc]">Recent generations</span><em class="not-italic text-[#5e5e66]">Stored in this browser</em></div>
+      <div id="recent" class="flex min-h-[114px] gap-3 overflow-x-auto py-4"><p class="self-center text-[10px] text-[#55555e]">No generations yet. Your latest five will be kept here.</p></div>
+    </section>
+
+    <footer class="sms-reveal sms-delay-8 mx-auto flex max-w-[1380px] flex-col justify-between gap-2 border-t hairline px-5 pb-10 pt-7 text-[9px] font-medium tracking-[.08em] text-[#8d8d96] sm:flex-row md:px-7">
+      <span>Brought to you by ©2026 <a class="font-bold text-[#e8e8ec] underline decoration-neonblue underline-offset-4" href="https://sterlingcreations.ai" target="_blank" rel="noopener noreferrer">STERLING CREATIONS Ai</a></span>
+      <em class="not-italic">Private production tool · Thumbnails and exports expire after 24 hours</em>
+    </footer>
+  </main>
+
+  <script>
+    (() => {
+      "use strict";
+      const API_BASE = (document.querySelector('meta[name="sterling-api-base"]')?.content || "").replace(/\/$/, "");
+      const apiUrl = path => `${API_BASE}${path}`;
+      const absoluteApiUrl = path => new URL(path, API_BASE || location.origin).href;
+      const stages = ["Opening website", "Loading desktop homepage", "Capturing desktop view", "Loading mobile homepage", "Capturing mobile view", "Creating device composite", "Preparing download"];
+      const recentKey = "sterling-promo-recent";
+      const recentTtl = 24 * 60 * 60 * 1000;
+      let currentJob = null;
+      let recent = [];
+
+      const $ = id => document.getElementById(id);
+      const form = $("capture-form");
+      const generateButton = $("generate-button");
+      const refreshIcons = () => window.lucide?.createIcons();
+
+      function escapeText(value) {
+        const node = document.createElement("span");
+        node.textContent = value;
+        return node.innerHTML;
+      }
+
+      async function readApiJson(response) {
+        const contentType = response.headers.get("content-type") || "";
+        const raw = await response.text();
+        if (!contentType.toLowerCase().includes("application/json")) {
+          const apiOrigin = API_BASE || location.origin;
+          throw new Error(`Capture API is not connected. ${apiOrigin} returned a webpage instead of the required JSON service. Deploy the capture server, then set the sterling-api-base meta tag in this embed.`);
+        }
+        try {
+          return JSON.parse(raw);
+        } catch {
+          throw new Error("The capture API returned an invalid response. Check the deployed server logs and sterling-api-base setting.");
+        }
+      }
+
+      function friendlyRequestError(error) {
+        if (!API_BASE && location.protocol === "file:") {
+          const filename = location.pathname.split("/").pop() || "index-standalone.html";
+          return `Local file previews cannot run generation. Keep npm run dev running, then open http://localhost:3000/${filename} instead of the file:/// address.`;
+        }
+        if (error instanceof TypeError && /fetch|network|load/i.test(error.message)) {
+          const apiOrigin = API_BASE || location.origin;
+          return `The capture API could not be reached at ${apiOrigin}. Check that the deployed server is running, uses HTTPS, allows sterlingcreations.ai, and matches the sterling-api-base setting.`;
+        }
+        return error instanceof Error ? error.message : "The website could not be captured.";
+      }
+
+      function setWorking(working) {
+        generateButton.disabled = working;
+        generateButton.innerHTML = working
+          ? '<i data-lucide="refresh-cw" class="spin h-4 w-4"></i><span>Building composite</span>'
+          : '<i data-lucide="sparkles" class="h-4 w-4"></i><span>Generate promo image</span><i data-lucide="arrow-right" class="h-4 w-4"></i>';
+        refreshIcons();
+      }
+
+      function renderStatus(job, error) {
+        const status = $("status");
+        status.classList.remove("hidden");
+        if (error) {
+          $("monitor-label").textContent = "Capture interrupted";
+          const apiProblem = /capture api|local file preview|localhost:3000/i.test(error);
+          const guidance = apiProblem
+            ? "This is a server connection issue; screenshot overrides will not bypass it."
+            : "Upload desktop and mobile screenshot overrides if this website blocks automated capture.";
+          status.innerHTML = `<div class="flex items-start gap-3 text-neonpink"><i data-lucide="circle-alert" class="mt-0.5 h-5 w-5 shrink-0"></i><div><b class="micro block">Capture needs attention</b><p class="mt-1 text-[11px] text-[#d0d0d5]">${escapeText(error)}</p><small class="text-[9px] text-[#797982]">${guidance}</small></div></div>`;
+        } else {
+          $("monitor-label").textContent = job.status === "complete" ? "Composite ready" : "Capture in progress";
+          status.innerHTML = `<ol class="grid gap-2 md:grid-cols-7">${stages.map((stage, index) => {
+            const complete = job.status === "complete" || index < job.stageIndex;
+            const active = job.status !== "complete" && index === job.stageIndex;
+            const classes = complete ? "border-[#315638] bg-[#182319] text-[#88e293]" : active ? "border-[#63aaff] bg-neonblue text-white shadow-[0_0_15px_rgba(44,140,255,.45)]" : "border-[#34343b] bg-[#17171c] text-[#57575f]";
+            return `<li class="flex items-center gap-2 md:flex-col"><i class="grid h-6 w-6 shrink-0 place-items-center rounded-full border text-[8px] not-italic ${classes}">${complete ? "✓" : index + 1}</i><span class="text-[8px] ${active ? "text-white" : "text-[#74747d]"}">${stage}</span></li>`;
+          }).join("")}</ol>`;
+        }
+        refreshIcons();
+      }
+
+      function loadRecent() {
+        try { recent = JSON.parse(localStorage.getItem(recentKey) || "[]").filter(item => item.hostname && item.previewUrl && item.createdAt && Date.now() - item.createdAt < recentTtl).slice(0, 5); }
+        catch { recent = []; }
+        localStorage.setItem(recentKey, JSON.stringify(recent));
+        renderRecent();
+      }
+
+      function saveRecent() {
+        localStorage.setItem(recentKey, JSON.stringify(recent));
+        renderRecent();
+      }
+
+      function renderRecent() {
+        const container = $("recent");
+        container.innerHTML = "";
+        if (!recent.length) {
+          container.innerHTML = '<p class="self-center text-[10px] text-[#55555e]">No generations yet. Your latest five will be kept here.</p>';
+          return;
+        }
+        recent.forEach(item => {
+          const card = document.createElement("article");
+          card.className = "recent-card relative w-[190px] shrink-0 border hairline bg-[#0f0f13] p-[7px] transition hover:-translate-y-0.5 hover:border-[#4c4c55]";
+          const main = document.createElement("button");
+          main.className = "block w-full bg-transparent p-0 text-left";
+          main.setAttribute("aria-label", `Use ${item.hostname} again`);
+          main.innerHTML = `<img class="aspect-[1500/812] w-full bg-[#15151a] object-cover" src="${escapeText(item.previewUrl)}" alt=""><span class="block truncate px-0.5 pb-0.5 pt-2 text-[8px] text-[#9b9ba4]">${escapeText(item.hostname.replace(/^www\./, ""))}</span>`;
+          main.addEventListener("click", () => { $("url").value = `https://${item.hostname}`; window.scrollTo({ top: 0, behavior: "smooth" }); });
+          const controls = document.createElement("div");
+          controls.className = "recent-controls absolute bottom-[34px] right-[11px] z-10 flex gap-1";
+          const download = document.createElement("a");
+          download.className = "recent-action";
+          download.href = item.downloadUrl || item.previewUrl.replace("?preview=1", "");
+          download.download = item.filename || `${item.hostname}-mobile-friendly-promo.jpg`;
+          download.title = "Download 1500 × 812 JPG";
+          download.setAttribute("aria-label", `Download ${item.hostname} at 1500 pixels wide`);
+          download.innerHTML = '<i data-lucide="arrow-down-to-line" class="h-3.5 w-3.5"></i>';
+          const remove = document.createElement("button");
+          remove.className = "recent-action hover:!border-[#ff76ac] hover:!bg-neonpink hover:!text-white";
+          remove.title = "Delete from recent generations";
+          remove.setAttribute("aria-label", `Delete ${item.hostname} from recent generations`);
+          remove.innerHTML = '<i data-lucide="trash-2" class="h-3.5 w-3.5"></i>';
+          remove.addEventListener("click", () => { recent = recent.filter(entry => entry.createdAt !== item.createdAt); saveRecent(); });
+          controls.append(download, remove);
+          card.append(main, controls);
+          container.append(card);
+        });
+        refreshIcons();
+      }
+
+      function showResult(job) {
+        const result = job.result;
+        const preview = absoluteApiUrl(result.previewUrl);
+        const standard = absoluteApiUrl(result.downloads.jpg);
+        const master = absoluteApiUrl(result.downloads.jpg2x);
+        $("empty-preview").classList.add("hidden");
+        $("output-image").src = preview;
+        $("output-image").classList.remove("hidden");
+        $("filename").textContent = result.filenameBase;
+        $("download-jpg").href = standard;
+        $("download-jpg2x").href = master;
+        $("result-actions").classList.remove("hidden");
+        $("result-actions").classList.add("flex");
+        recent = [{ hostname: result.hostname, previewUrl: preview, downloadUrl: standard, filename: `${result.filenameBase}.jpg`, createdAt: Date.now() }, ...recent.filter(item => item.hostname !== result.hostname)].slice(0, 5);
+        saveRecent();
+      }
+
+      async function pollJob(id) {
+        for (;;) {
+          await new Promise(resolve => setTimeout(resolve, 650));
+          const response = await fetch(apiUrl(`/api/jobs/${id}`), { cache: "no-store" });
+          const job = await readApiJson(response);
+          if (!response.ok) throw new Error(job.error || "Generation status could not be read.");
+          currentJob = job;
+          renderStatus(job);
+          if (job.status === "complete") { showResult(job); return; }
+          if (job.status === "error") throw new Error(job.error || "The website could not be captured.");
+        }
+      }
+
+      async function generate(event) {
+        event?.preventDefault();
+        if (!$("url").value.trim()) return;
+        setWorking(true);
+        $("status").classList.add("hidden");
+        $("monitor-label").textContent = "Starting capture";
+        const data = new FormData();
+        data.set("url", $("url").value);
+        data.set("delaySeconds", $("delay").value);
+        data.set("backgroundDarkening", $("darkening").value);
+        data.set("phoneShadow", $("shadow").value);
+        data.set("desktopScrollY", $("desktop-scroll").value);
+        data.set("mobileScrollY", $("mobile-scroll").value);
+        data.set("hideSelector", $("hide-selector").value);
+        data.set("showAddress", String($("show-address").checked));
+        if ($("desktop-file").files[0]) data.set("desktopOverride", $("desktop-file").files[0]);
+        if ($("mobile-file").files[0]) data.set("mobileOverride", $("mobile-file").files[0]);
+        try {
+          if (!API_BASE && location.protocol === "file:") {
+            throw new Error("Local file preview requires the localhost server.");
+          }
+          const response = await fetch(apiUrl("/api/generate"), { method: "POST", body: data });
+          const job = await readApiJson(response);
+          if (!response.ok) throw new Error(job.error || "Generation could not start.");
+          currentJob = job;
+          renderStatus(job);
+          await pollJob(job.id);
+        } catch (error) {
+          renderStatus(currentJob, friendlyRequestError(error));
+        } finally { setWorking(false); }
+      }
+
+      form.addEventListener("submit", generate);
+      $("recapture").addEventListener("click", generate);
+      [["delay", "delay-value", "s"], ["darkening", "dark-value", "%"], ["shadow", "shadow-value", "%"]].forEach(([input, output, suffix]) => {
+        $(input).addEventListener("input", () => { $(output).textContent = `${$(input).value}${suffix}`; });
+      });
+      loadRecent();
+      window.setInterval(() => {
+        const valid = recent.filter(item => Date.now() - item.createdAt < recentTtl);
+        if (valid.length !== recent.length) { recent = valid; saveRecent(); }
+      }, 60_000);
+      refreshIcons();
+    })();
+  </script>
